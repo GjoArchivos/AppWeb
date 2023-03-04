@@ -1,1 +1,27 @@
-<p>clientes works!</p>
+<div class="card border-primary mb-3" style="max-width: 100%; padding: 30px;">
+    <div class="card-header">Clientes</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Lista de Clientes</h5>
+      
+      <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>email</th>
+                <th>fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lClientes of clientes">
+                <td>{{lClientes.id}}</td>
+                <td>{{lClientes.nombre}}</td>
+                <td>{{lClientes.apellido}}</td>
+                <td>{{lClientes.email}}</td>
+                <td>{{lClientes.createAt}}</td>
+            </tr>
+        </tbody>
+      </table>
+      
+    </div>

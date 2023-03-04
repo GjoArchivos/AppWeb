@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Cliente } from './cliente';
+import { ClienteService } from './cliente.service';
 
 @Component({
   selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.css']
+  templateUrl: './clientes.component.html'
 })
-export class ClientesComponent {
+
+export class ClientesComponent implements OnInit {
+
+  clientes: Cliente[];
+
+  constructor(private clienteService: ClienteService){
+
+  }
+
+ngOnInit(){
+  //antes de poner el observasble
+  this.clienteService.getClientes().subscribe(
+    Clientes => this.clientes = Clientes 
+  );
+}
 
 }
