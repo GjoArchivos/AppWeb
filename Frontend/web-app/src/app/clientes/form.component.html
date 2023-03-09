@@ -4,31 +4,40 @@
     </div>
 
     <div class="card-body">
-        <form (ngSubmit)="create()">
-            <div class="form-group row">
-                <label for="Nombre" class="col-form-label col-sm-2">Nombre</label>
+
+        <form>
+            <div class=" form-group row">
+                <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
                 <div class="col-sm-6">
-                    <input type="button" class="form-control" [(ngModel)]="cliente.nombre" name="Nombre">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="Nombre">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="Apellido" class="col-form-label col-sm-2">Apellido</label>
+            <div class=" form-group row">
+                <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
                 <div class="col-sm-6">
-                    <input type="button" class="form-control" [(ngModel)]="cliente.apellido" name="Apellido">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="Apellido">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="Email" class="col-form-label col-sm-2">Email</label>
+            <div class=" form-group row">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
                 <div class="col-sm-6">
-                    <input type="button" class="form-control" [(ngModel)]="cliente.email" name="Email">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.email" name="Correo">
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Crear</button>
+                    <button class="btn btn-primary" role="button" (click)="CrearCliente()" *ngIf="!cliente.id else elseBlock">Crear</button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)="actualizaCliente()">Editar</button>
+                    </ng-template>
+
                 </div>
             </div>
+    
         </form>
     </div>
+   
+
 </div>
